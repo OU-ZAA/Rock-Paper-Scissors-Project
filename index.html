@@ -13,7 +13,31 @@
             const index = Math.floor(Math.random() * 3);
             return odds[index];
         }
-        console.log(getComputerChoice());
+        function playRound(playerSelection, computerSelection) {
+
+            const playerSelectionCaseInsensitive = playerSelection.toLowerCase();
+            const computerSelectionCaseInsensitive = computerSelection.toLowerCase();
+
+            if (playerSelectionCaseInsensitive === 'rock' && computerSelectionCaseInsensitive === 'paper') {
+                return 'You lose! Paper beats Rock';
+            } else if (playerSelectionCaseInsensitive === 'paper' && computerSelectionCaseInsensitive === 'scissors') {
+                return 'You lose! Scissors beats Paper';
+            } else if (playerSelectionCaseInsensitive === 'scissors' && computerSelectionCaseInsensitive === 'rock') {
+                return 'You lose! Rock beats scissors';
+            } else if (playerSelectionCaseInsensitive === 'rock' && computerSelectionCaseInsensitive === 'scissors') {
+                return 'You win! Rock beats scissors';
+            } else if (playerSelectionCaseInsensitive === 'paper' && computerSelectionCaseInsensitive === 'rock') {
+                return 'You win! Paper beats Rock';
+            } else if (playerSelectionCaseInsensitive === 'scissors' && computerSelectionCaseInsensitive === 'paper') {
+                return 'You win! Scissors beats Paper';
+            } else {
+                return 'It is a tie';
+            }
+        }
+        const playerSelection = 'scissors';
+        const computerSelection = getComputerChoice();
+        console.log(computerSelection);
+        console.log(playRound(playerSelection, computerSelection));
     </script>
 </body>
 </html>
