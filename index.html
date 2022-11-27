@@ -7,48 +7,52 @@
     <title>Rock paper scissors</title>
 </head>
 <body>
+    <div class="container">
+        <button class="rock">Rock</button>
+        <button class="paper">Paper</button>
+        <button class="scissors">Scissors</button>
+        <div id="result"></div>
+    </div>
     <script>
         function getComputerChoice() {
-            const odds = ['Rock', 'Paper', 'Scissors'];
+            const odds = ['rock', 'paper', 'scissors'];
             const index = Math.floor(Math.random() * 3);
             return odds[index];
         }
-        function playRound(playerSelection, computerSelection) {
+        function playRound(playerSelection) {
+            const computerSelection = getComputerChoice();
 
-            const playerSelectionCaseInsensitive = playerSelection.toLowerCase();
-            const computerSelectionCaseInsensitive = computerSelection.toLowerCase();
-
-            if (playerSelectionCaseInsensitive === 'rock' && computerSelectionCaseInsensitive === 'paper') {
-                return computerScore++;
-            } else if (playerSelectionCaseInsensitive === 'paper' && computerSelectionCaseInsensitive === 'scissors') {
-                return computerScore++;
-            } else if (playerSelectionCaseInsensitive === 'scissors' && computerSelectionCaseInsensitive === 'rock') {
-                return computerScore++;
-            } else if (playerSelectionCaseInsensitive === 'rock' && computerSelectionCaseInsensitive === 'scissors') {
-                return playerScore++;
-            } else if (playerSelectionCaseInsensitive === 'paper' && computerSelectionCaseInsensitive === 'rock') {
-                return playerScore++;
-            } else if (playerSelectionCaseInsensitive === 'scissors' && computerSelectionCaseInsensitive === 'paper') {
-                return playerScore++;
+            if (playerSelection === 'rock' && computerSelection === 'paper') {
+                result.textContent = 'You Lost!';
+            } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+                result.textContent = 'You Lost!';
+            } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+                result.textContent = 'You Lost!';
+            } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+                result.textContent = 'You Won!';
+            } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+                result.textContent = 'You Won!';
+            } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+                result.textContent = 'You Won!';
             }
         }
         function game() {
-            for (let i = 0; i < 5; i++) {
-                const playerSelection = prompt('Enter one :Rock, Paper, Scissors?');
-                const computerSelection = getComputerChoice();
-                playRound(playerSelection, computerSelection);
-            }
             if (playerScore > computerScore) {
-            console.log('You won!');
+                console.log('You won!');
             } else if (playerScore < computerScore) {
                 console.log('You lost!')
             } else {
                 console.log('Tie!');
             }
         }
-        let computerScore = 0;
-        let playerScore = 0;
-        game();
+        const rock = document.querySelector('.rock');
+        const paper = document.querySelector('.paper');
+        const scissors = document.querySelector('.scissors');
+        const result = document.querySelector('#result');
+            
+        rock.addEventListener('click', () => playRound('rock'));
+        paper.addEventListener('click', () => playRound('paper'));
+        scissors.addEventListener('click', () => playRound('scissors'));
     </script>
 </body>
 </html>
