@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
     <title>Rock paper scissors</title>
 </head>
 <body>
@@ -13,46 +14,5 @@
         <button class="scissors">Scissors</button>
         <div id="result"></div>
     </div>
-    <script>
-        function getComputerChoice() {
-            const odds = ['rock', 'paper', 'scissors'];
-            const index = Math.floor(Math.random() * 3);
-            return odds[index];
-        }
-        function playRound(playerSelection) {
-            const computerSelection = getComputerChoice();
-
-            if (playerSelection === 'rock' && computerSelection === 'paper') {
-                result.textContent = 'You Lost!';
-            } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-                result.textContent = 'You Lost!';
-            } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-                result.textContent = 'You Lost!';
-            } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-                result.textContent = 'You Won!';
-            } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-                result.textContent = 'You Won!';
-            } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-                result.textContent = 'You Won!';
-            }
-        }
-        function game() {
-            if (playerScore > computerScore) {
-                console.log('You won!');
-            } else if (playerScore < computerScore) {
-                console.log('You lost!')
-            } else {
-                console.log('Tie!');
-            }
-        }
-        const rock = document.querySelector('.rock');
-        const paper = document.querySelector('.paper');
-        const scissors = document.querySelector('.scissors');
-        const result = document.querySelector('#result');
-            
-        rock.addEventListener('click', () => playRound('rock'));
-        paper.addEventListener('click', () => playRound('paper'));
-        scissors.addEventListener('click', () => playRound('scissors'));
-    </script>
 </body>
 </html>
