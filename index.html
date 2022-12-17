@@ -5,53 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="script.js" defer></script>
     <title>Rock paper scissors</title>
 </head>
 <body>
-    <div class="container">
-        <div id="header">
-            <h1>rock paper scissors</h1>
-        </div>
-        <div id="main">
-            <div class="scoreboard">
-                <h3>Choose your weapon</h3>
-                <h4>First to score 5 points wins the game</h4>
-                <div class="score-container">
-                    <div class="score-box">
-                        <div class="sign">❔</div>
-                        <p>Player: 0</p>
-                    </div>
-                    <div class="score-box">
-                        <div class="sign">❔</div>
-                        <p>Computer: 0</p>
-                    </div>
+    <div id="header">
+        <h1 class="title">rock paper scissors</h1>
+    </div>
+    <div id="main">
+        <div class="scoreboard">
+            <h2 class="score-info" id="scoreInfo">Choose your weapon</h3>
+            <h3 class="score-message" id="scoreMessage">First to score 5 points wins the game</h4>
+            <div class="score-container">
+                <div class="score-box">
+                    <div class="sign" id="playerSign">❔</div>
+                    <p class="score" id="playerScore">Player: 0</p>
+                </div>
+                <div class="score-box">
+                    <div class="sign" id="computerSign">❔</div>
+                    <p class="score" id="computerScore">Computer: 0</p>
                 </div>
             </div>
-            <div class="buttons">
-                <button class="rock">
-                    <div>✊</div>
-                </button>
-                <button class="paper">
-                    <div>✋</div>
-                </button>
-                <button class="scissors">
-                    <div>✌</div>
-                </button> 
-            </div>
         </div>
-        <div id="footer">
-            <p>
-                Copyright ©
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>
-                OU-ZAA
-                </p>
-                <a href="https://github.com/OU-ZAA" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
+        <div class="buttons">
+            <button class="btn" id="rockBtn">
+                <div>✊</div>
+            </button>
+            <button class="btn" id="paperBtn">
+                <div>✋</div>
+            </button>
+            <button class="btn" id="scissorsBtn">
+                <div>✌</div>
+            </button> 
         </div>
     </div>
+    <div id="footer">
+        <p>
+            Copyright ©
+            <script>
+              document.write(new Date().getFullYear())
+            </script>
+            OU-ZAA
+        </p>
+        <a href="https://github.com/OU-ZAA" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+    <div class="modal" id="endGameModal">
+        <p class="modal-title" id="endGameMsg"></p>
+        <button class="btn-restart" id="restartBtn">Play again</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
 </body>
 </html>
